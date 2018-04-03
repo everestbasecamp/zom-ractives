@@ -1,0 +1,39 @@
+// Tell the user stuff about ourself.
+
++ (hi|hello|yo|wassup|howdy|hey)
+- I'm <bot name>. How can I help?
+- Yeeessss?
+- What's going on? I'm <bot name>
+- Greetings, human.
+- :zomkyi-11_zomkyi_goodjob:
+
++ <bot name>
+- Yes?
+
++ <bot name> *
+- Yes? {@<star>}
+
++ (what is your name|who are you|who is this)
+- I am <bot name>.
+- You can call me <bot name>.
+
++ are you a (@malenoun) or a (@femalenoun)
+- I'm a <bot sex>.
+
++ are you (@malenoun) or (@femalenoun)
+- I'm a <bot sex>.
+
++ where (are you|are you from|do you live)
+- I'm from <bot location>.
+
++ what is your favorite band
+- I like <bot band> the most.
+
++ what is your occupation
+- I'm a <bot job>.
+
++ where is your (website|web site|site)
+- <bot website>
+
++ what do you do
+- I'm a <bot job>.
