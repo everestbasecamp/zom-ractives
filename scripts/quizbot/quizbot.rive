@@ -1,0 +1,246 @@
+! version = 2.0
+
++ hello bot
+- Hello human.
+
++ my name is *
+- <set name=<formal>>Nice to meet you, <get name>.
+
++ (what is my name|who am i)
+- You're <get name>, right?
+
++ *
+- I don't have a reply for that.
+- Try asking that a different way.
+
++ [*] (hey|hi|hello|sup) [*]
+- Ahem... <delay seconds=1> I am Agu Denpa, the quiz master!\n 
+^ When you are ready to being, just type "take quiz"
+
++ (take quiz|quiz|start) {weight=10}
+- {@ clear results}{topic=question-1} {@ question}
++ clear results {weight=2}
+- <set points=0>
+
+> question-1
++ question
+- How many letters are there in the Tibetan alphabet? 5, 10, 20 or 30
+
++ 30
+- Well done, but that was a very easy question.\n<add points=1> <send> {topic=question-2} {@ question}
++ (5|10|20|#)
+- Shame on you. There are 30 letters in the Tibetan alphabet.\n<send> {topic=question-2} {@ question}
+<
+
+> topic question-2
++ question
+- Alright, next question! Which of the following musical instruments is authentically Tibetan?
+^ Guitar        Violin        Dranyen    Piano
++ dranyen
+- La re do, you got it.<add points=1> <send> {topic=question-3} {@ question}
++ (guitar|violin|piano)
+- Wrong. It’s Dranyen. <send> {topic=question-3} {@ question}
+<
+
+> topic question-3
++ question
+* <get points> == 2 => Great job so far!\n
+^ Who was the first king of Tibet? Songtsen Gampo, Nyatri Tsenpo, Pema Tseden, or Lang Dharma   
+- You have to concentrate, my friend! \n
+^ Who was the first king of Tibet? Songtsen Gampo, Nyatri Tsenpo, Pema Tseden, or Lang Dharma   
+ 
++ [*] (nyatri tsenpo|nyatri|tsenpo) [*]
+- Wow, you know something about history! <add points=1> <send> {topic=question-4} {@ question}
+
++ [*] (songtsen|gampo|pema|tseden|lang|dharma) [*]
+- Wrong. Nyatri Tsenpo was the first king of Tibet. Ever heard the song, “Don’t know nothing about history?” <send> {topic=question-4} {@ question}
+<
+
+> topic question-4
++ question
+- How many cups of butter tea does the average Tibetan nomad drink per day?\n 
+^  1    10    20    5   
++ (10|ten)
+- Spot on. You must be a nomad yourself!\n\n<add points=1> <send> {topic=question-5} {@ question}
++ (1|20|5|#)
+- Wrong. It’s 10. You’re hopeless. Don’t even ask me how I know.\n\n<send> {topic=question-5} {@ question}
+<
+
+> topic question-5
++ question
+- <get points> points so far! How many lakes are there on the Tibetan plateau whose size is greater than 1 square kilometer?\n
+^   1,055        505        10,055        705
+
++ (1055)
+- Wow! That was a tough one and you nailed it. Good for you.\n<add points=1> <send> {topic=question-6} {@ question}
+
++ (505|10055|705|#)
+- Sorry. There are 1,055 lakes that are larger than 1 square kilometer on the Tibetan plateau.\n<send> {topic=question-6} {@ question}
+<
+
+> topic question-6
++ question
+- Where is Yamdrok Lake located?\n
+^ Utsang        Kham        Amdo        Chamdo
+
++ (utsang)
+- You got it! Looks like you’ve traveled a bit, or at least studied geography.\n<add points=1> <send> {topic=question-7} {@ question}
+
++ (kham|amdo|chamdo)
+- Wrong. Yamdrok Lake is in Utsang, just a couple of hours drive from Lhasa. Go back to high school, study some, and then come back to play this game.  <send> {topic=question-7} {@ question}
+
+<
+
+> topic question-7
++ question
+- What is the distance between Lhasa and Shigatse?\n
+^    150 km    270 km    350 km    520 km
+
++ (270 km|270|270km)
+- Nice. That was a tough one and you nailed it.\n<add points=1> <send> {topic=question-8} {@ question}
+
++ [*] (150|350|520) [*]
+- Sorry. You are a bad guesser. <send> {topic=question-8} {@ question}
+
+<
+
+> topic question-8
++ question
+- Where was Gedun Choephel born?\n
+^     Lithang    Rebkong    Dartsedo    Ngaba
+
++ rebkong
+- Correct, well done.\n<add points=1> <send> {topic=question-9} {@ question}
+
++ (lithang|dartsedo|ngaba)
+- Wrong. GC was born in Rebkong, just like Tsongkhapa and many other famous scholars. I’m flabbergasted you don’t even know that! \n<send> {topic=question-9} {@ question}
+
+<
+
+> topic question-9
++ question
+- How many ingredients are there in guthuk, which is a traditional thukpa made on the 29th day of the 12th month of the year?\n
+^    7    19    9    29
+
++ (9|nine)
+- That’s correct. Gu means 9, thuk means thukpa. So guthuk is thukpa with 9 ingredients. Pretty basic. <add points=1> <send> {topic=question-10} {@ question}
+
++ (7|19|29|#)
+- OMG, are you serious? If you used your common sense once in awhile, you would have answered correctly. Gu means 9, thuk means thukpa. So guthuk is thukpa with 9 ingredients. <send> {topic=question-10} {@ question}
+
+<
+
+> topic question-10
++ question
+- <get points> points, so far!\n
+^ Who invented the Tibetan script?\n
+^ Sonam Wangdue      Thonmi Sambhota           Milarepa            Menla Kyab
+
++  [*] (thonmi sambhota|thonmi|sambhota) [*]
+- Great work!  Thonmi Sambhota invented the Tibetan script, developing the 30 alphabets and the 4 vowels. <add points=1> <send> {topic=question-11} {@ question}
+
+- [*] (sonam|wangdue|milarepa|menla|kyab) [*]
+Response: That was an easy question, and you messed up big time. Thonmi Sambhota invented the Tibetan script. <send> {topic=question-11} {@ question}
+
+<
+
+> topic question-11
++ question
+- The Tibetan script was modeled on which ancient script?\n
+^ Pali           Latin        Roman        Gupta
+
++ (gupta script|gupta)
+- Well done. <add points=1> <send> {topic=question-12} {@ question}
+
++ (pali|latin|roman)
+- Wrong! Tibetan script was modeled on the Gupta script. <send> {topic=question-12} {@ question}
+
+<
+
+> topic question-12
++ question
+- Who wrote the famous poem “Waterfall of Youth”?\n
+^ Jangbu,    Woeser,   Dhondup Gyal,    Drukpa Kunleg
+ 
++ (dhondup gyal|dhondup|gyal)
+- Wow, you’re an educated reader of Tibetan literature!<add points=1> <send> {topic=question-13} {@ question}
+
++ (jangbu|woeser|drukpa kunleg|drukpa|kunleg)
+- Sorry. That famous poem was written by Dhondup Gyal. <send> {topic=question-13} {@ question}
+
+<
+
+> topic question-13
++ question
+- Who among the following is not a Tibetan singer?\n
+^ Jamyang Kyi, Sherten, Tsewang Lhamo, Justin Bieber
+    
++ (justin bieber|bieber)
+- You got it. Justin Bieber is no Bhoepa, just an awful singer. <add points=1> <send> {topic=question-14} {@ question}
+
+- (jamyang kyi|sherten|tsewang lhamo)    
+- Wrong. Jamyang Kyi, Sherten and Tsewang Lhamo are glorious Tibetan singers, but Justin Bieber is an awful Canadian singer. <send> {topic=question-14} {@ question}
+
+<
+
+> topic question-14
++ question
+- Which of the following is the name of a Tibetan literary magazine?\n
+^ Paris Review        New Yorker        Tehelka    Drangchar
+
++ drangchar
+- Correct! But that was an easy one.<add points=1> <send> {topic=question-15} {@ question}
+
++ [*] (paris review|paris|new yorker|tehelka) [*]
+- Wrong. Drangchar is the correct answer.<send> {topic=question-15} {@ question}
+
+<
+
+> topic question-15
++ question
+- According to the Tibetan myth of origin, who were the original ancestors of the Tibetan people?\n^ Lions, Yaks, Monkeys, Eagles
+
++ (monkey|monkeys)
+- That’s right. Before Darwin developed his theory of evolution, Tibetans already believed that they came from monkeys. Perhaps, Darwin was inspired by the Tibetan myth of origin, we don’t really know.<add points=1> <send> {topic=question-16} {@ question}
+
++ [*] (lions|lion|yaks|yak|eagles|eagle) [*]
+- Wrong. Tibetans may look like lions, dance like yaks, and fly like eagles, but those animals are not their ancestors in myth or in fact. <send> {topic=question-16} {@ question}
+
+<
+
+> topic question-16
++ question
+- What is the oldest Buddhist monastery in Tibet?\n
+^   Jokhang, Samye, Labrang, Kirti
+
++ (samye|samye monastery)
+- Correct!  Samye was built in the 8th century when Buddhism replaced Bon as the dominant religion of Tibet.<add points=1> <send> {topic=question-17} {@ question}
+
++ (jokhang|labrang|kirti)
+- These are famous monasteries but none of them is older than Samye. <send> {topic=question-17} {@ question}
+
+<
+
+> topic question-17
++ question
+-  Which of the following authors penned this line: “In the eyes of the world, Mila has gone mad; In the eyes of Mila, the world has gone mad.” \n
+^  Milarepa,     Tsangyang Gyatso,       Sakya Pandita,        Gedun Choephel
+
++ milarepa
+- You got it! Milarepa sang thousands of songs in the wilderness, and somehow his student Rechungpa was able to document most of them in his biography. This particular line captures Milarepa’s scathing critique of those who lived a worldly life of desire, anger and ignorance. <add points=1> <send> {topic=final} {@ question}
+
++ [*] (tsangyang|gyatso|sakya|pandita|gedun|choephel) [*]
+- Wrong. This line is from the 12th century saint Milarepa.<send> {topic=final} {@ question}
+
+<
+
+> topic final
++ question
+* <get name> == 17 => Amazing, perfect score. You are a true Bhoepa!
+* <get name> == 12 => Not bad, <get points> points! Brush up on some history and try again soon!
+* <get name> == 8 => Well, <get points> points is a start... Study up and you can do better
+- That was... uh... yeah... you need some serious studying!
+<
+
+
+
