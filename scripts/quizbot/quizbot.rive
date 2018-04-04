@@ -1,19 +1,13 @@
 ! version = 2.0
 
-+ hello bot
-- Hello human.
+> object getpoints javascript
+   var points = rs.getUservar(rs.currentUser(), "points");
+   return "Your have " + points + " points!";
+< object
 
-+ my name is *
-- <set name=<formal>>Nice to meet you, <get name>.
-
-+ (what is my name|who am i)
-- You're <get name>, right?
+> default
 
 + *
-- I don't have a reply for that.
-- Try asking that a different way.
-
-+ [*] (hey|hi|hello|sup) [*]
 - Ahem... <delay seconds=1> I am Agu Denpa, the quiz master!\n 
 ^ When you are ready to being, just type "take quiz"
 
@@ -21,6 +15,7 @@
 - {@ clear results}{topic=question-1} {@ question}
 + clear results {weight=2}
 - <set points=0>
+<
 
 > question-1
 + question
@@ -30,16 +25,20 @@
 - Well done, but that was a very easy question.\n<add points=1> <send> {topic=question-2} {@ question}
 + (5|10|20|#)
 - Shame on you. There are 30 letters in the Tibetan alphabet.\n<send> {topic=question-2} {@ question}
++ (quit|stop|quiz|restart)
+- <send> {topic=default} {@ *}
 <
 
 > topic question-2
 + question
-- Alright, next question! Which of the following musical instruments is authentically Tibetan?
+- Alright, next question! Which of the following musical instruments is authentically Tibetan?\n
 ^ Guitar        Violin        Dranyen    Piano
 + dranyen
 - La re do, you got it.<add points=1> <send> {topic=question-3} {@ question}
 + (guitar|violin|piano)
 - Wrong. It’s Dranyen. <send> {topic=question-3} {@ question}
++ (quit|stop|quiz|restart)
+- <send> {topic=default} {@ *}
 <
 
 > topic question-3
@@ -54,107 +53,121 @@
 
 + [*] (songtsen|gampo|pema|tseden|lang|dharma) [*]
 - Wrong. Nyatri Tsenpo was the first king of Tibet. Ever heard the song, “Don’t know nothing about history?” <send> {topic=question-4} {@ question}
++ (quit|stop|quiz|restart)
+- <send> {topic=default} {@ *}
 <
 
 > topic question-4
 + question
 - How many cups of butter tea does the average Tibetan nomad drink per day?\n 
-^  1    10    20    5   
+^  1, 10, 20, 5   
 + (10|ten)
 - Spot on. You must be a nomad yourself!\n\n<add points=1> <send> {topic=question-5} {@ question}
 + (1|20|5|#)
 - Wrong. It’s 10. You’re hopeless. Don’t even ask me how I know.\n\n<send> {topic=question-5} {@ question}
++ (quit|stop|quiz|restart)
+- <send> {topic=default} {@ *}
 <
 
 > topic question-5
 + question
 - <get points> points so far! How many lakes are there on the Tibetan plateau whose size is greater than 1 square kilometer?\n
-^   1,055        505        10,055        705
+^   1055, 505, 10055, 705
 
-+ (1055)
++ (1055) 
 - Wow! That was a tough one and you nailed it. Good for you.\n<add points=1> <send> {topic=question-6} {@ question}
 
 + (505|10055|705|#)
 - Sorry. There are 1,055 lakes that are larger than 1 square kilometer on the Tibetan plateau.\n<send> {topic=question-6} {@ question}
++ (quit|stop|quiz|restart)
+- <send> {topic=default} {@ *}
 <
 
 > topic question-6
 + question
 - Where is Yamdrok Lake located?\n
-^ Utsang        Kham        Amdo        Chamdo
+^ Utsang, Kham, Amdo, Chamdo
 
 + (utsang)
 - You got it! Looks like you’ve traveled a bit, or at least studied geography.\n<add points=1> <send> {topic=question-7} {@ question}
 
 + (kham|amdo|chamdo)
 - Wrong. Yamdrok Lake is in Utsang, just a couple of hours drive from Lhasa. Go back to high school, study some, and then come back to play this game.  <send> {topic=question-7} {@ question}
-
++ (quit|stop|quiz|restart)
+- <send> {topic=default} {@ *}
 <
 
 > topic question-7
 + question
 - What is the distance between Lhasa and Shigatse?\n
-^    150 km    270 km    350 km    520 km
+^    150 km, 270 km, 350 km, 520 km
 
 + (270 km|270|270km)
 - Nice. That was a tough one and you nailed it.\n<add points=1> <send> {topic=question-8} {@ question}
 
 + [*] (150|350|520) [*]
 - Sorry. You are a bad guesser. <send> {topic=question-8} {@ question}
-
++ (quit|stop|quiz|restart)
+- <send> {topic=default} {@ *}
 <
 
 > topic question-8
 + question
 - Where was Gedun Choephel born?\n
-^     Lithang    Rebkong    Dartsedo    Ngaba
+^     Lithang, Rebkong, Dartsedo, Ngaba
 
 + rebkong
 - Correct, well done.\n<add points=1> <send> {topic=question-9} {@ question}
 
 + (lithang|dartsedo|ngaba)
 - Wrong. GC was born in Rebkong, just like Tsongkhapa and many other famous scholars. I’m flabbergasted you don’t even know that! \n<send> {topic=question-9} {@ question}
-
++ (quit|stop|quiz|restart)
+- <send> {topic=default} {@ *}
 <
 
 > topic question-9
 + question
 - How many ingredients are there in guthuk, which is a traditional thukpa made on the 29th day of the 12th month of the year?\n
-^    7    19    9    29
+^    7, 19, 9 or 29
 
 + (9|nine)
 - That’s correct. Gu means 9, thuk means thukpa. So guthuk is thukpa with 9 ingredients. Pretty basic. <add points=1> <send> {topic=question-10} {@ question}
 
 + (7|19|29|#)
 - OMG, are you serious? If you used your common sense once in awhile, you would have answered correctly. Gu means 9, thuk means thukpa. So guthuk is thukpa with 9 ingredients. <send> {topic=question-10} {@ question}
-
++ (quit|stop|quiz|restart)
+- <send> {topic=default} {@ *}
 <
 
 > topic question-10
 + question
 - <get points> points, so far!\n
 ^ Who invented the Tibetan script?\n
-^ Sonam Wangdue      Thonmi Sambhota           Milarepa            Menla Kyab
+^ Sonam Wangdue, Thonmi Sambhota, Milarepa, Menla Kyab
 
-+  [*] (thonmi sambhota|thonmi|sambhota) [*]
-- Great work!  Thonmi Sambhota invented the Tibetan script, developing the 30 alphabets and the 4 vowels. <add points=1> <send> {topic=question-11} {@ question}
++ (thonmi sambhota|thonmi|sambhota)
+- Great work! Thonmi Sambhota invented the Tibetan script, developing the 30 alphabets and the 4 vowels. <add points=1> <send> {topic=question-11} {@ question}
 
-- [*] (sonam|wangdue|milarepa|menla|kyab) [*]
-Response: That was an easy question, and you messed up big time. Thonmi Sambhota invented the Tibetan script. <send> {topic=question-11} {@ question}
++ (sonam|wangdue|milarepa|menla|kyab)
+- That was an easy question, and you messed up big time. Thonmi Sambhota invented the Tibetan script. <send> {topic=question-11} {@ question}
+
++ (quit|stop|quiz|restart)
+- <send> {topic=default} {@ *}
 
 <
 
 > topic question-11
 + question
 - The Tibetan script was modeled on which ancient script?\n
-^ Pali           Latin        Roman        Gupta
+^ Pali, Latin, Roman, Gupta
 
 + (gupta script|gupta)
 - Well done. <add points=1> <send> {topic=question-12} {@ question}
 
 + (pali|latin|roman)
 - Wrong! Tibetan script was modeled on the Gupta script. <send> {topic=question-12} {@ question}
-
++ (quit|stop|quiz|restart)
+- <send> {topic=default} {@ *}
 <
 
 > topic question-12
@@ -167,7 +180,8 @@ Response: That was an easy question, and you messed up big time. Thonmi Sambhota
 
 + (jangbu|woeser|drukpa kunleg|drukpa|kunleg)
 - Sorry. That famous poem was written by Dhondup Gyal. <send> {topic=question-13} {@ question}
-
++ (quit|stop|quiz|restart)
+- <send> {topic=default} {@ *}
 <
 
 > topic question-13
@@ -178,34 +192,40 @@ Response: That was an easy question, and you messed up big time. Thonmi Sambhota
 + (justin bieber|bieber)
 - You got it. Justin Bieber is no Bhoepa, just an awful singer. <add points=1> <send> {topic=question-14} {@ question}
 
-- (jamyang kyi|sherten|tsewang lhamo)    
++ (jamyang kyi|kyi|sherten|tsewang lhamo|lhamo)    
 - Wrong. Jamyang Kyi, Sherten and Tsewang Lhamo are glorious Tibetan singers, but Justin Bieber is an awful Canadian singer. <send> {topic=question-14} {@ question}
 
++ (quit|stop|quiz|restart)
+- <send> {topic=default} {@ *}
 <
 
 > topic question-14
 + question
 - Which of the following is the name of a Tibetan literary magazine?\n
-^ Paris Review        New Yorker        Tehelka    Drangchar
+^ Paris Review, New Yorker, Tehelka, Drangchar
 
 + drangchar
 - Correct! But that was an easy one.<add points=1> <send> {topic=question-15} {@ question}
 
-+ [*] (paris review|paris|new yorker|tehelka) [*]
++ (paris review|paris|new yorker|tehelka)
 - Wrong. Drangchar is the correct answer.<send> {topic=question-15} {@ question}
 
++ (quit|stop|quiz|restart)
+- <send> {topic=default} {@ *}
 <
 
 > topic question-15
 + question
-- According to the Tibetan myth of origin, who were the original ancestors of the Tibetan people?\n^ Lions, Yaks, Monkeys, Eagles
+- According to the Tibetan myth of origin, who were the original ancestors of the Tibetan people?\n Lions, Yaks, Monkeys, Eagles
 
 + (monkey|monkeys)
 - That’s right. Before Darwin developed his theory of evolution, Tibetans already believed that they came from monkeys. Perhaps, Darwin was inspired by the Tibetan myth of origin, we don’t really know.<add points=1> <send> {topic=question-16} {@ question}
 
-+ [*] (lions|lion|yaks|yak|eagles|eagle) [*]
++ (lions|lion|yaks|yak|eagles|eagle)
 - Wrong. Tibetans may look like lions, dance like yaks, and fly like eagles, but those animals are not their ancestors in myth or in fact. <send> {topic=question-16} {@ question}
 
++ (quit|stop|quiz|restart)
+- <send> {topic=default} {@ *}
 <
 
 > topic question-16
@@ -219,6 +239,8 @@ Response: That was an easy question, and you messed up big time. Thonmi Sambhota
 + (jokhang|labrang|kirti)
 - These are famous monasteries but none of them is older than Samye. <send> {topic=question-17} {@ question}
 
++ (quit|stop|quiz|restart)
+- <send> {topic=default} {@ *}
 <
 
 > topic question-17
@@ -229,17 +251,23 @@ Response: That was an easy question, and you messed up big time. Thonmi Sambhota
 + milarepa
 - You got it! Milarepa sang thousands of songs in the wilderness, and somehow his student Rechungpa was able to document most of them in his biography. This particular line captures Milarepa’s scathing critique of those who lived a worldly life of desire, anger and ignorance. <add points=1> <send> {topic=final} {@ question}
 
-+ [*] (tsangyang|gyatso|sakya|pandita|gedun|choephel) [*]
++ (tsangyang|gyatso|sakya|pandita|gedun|choephel)
 - Wrong. This line is from the 12th century saint Milarepa.<send> {topic=final} {@ question}
+
++ (quit|stop|quiz|restart)
+- <send> {topic=default} {@ *}
 
 <
 
 > topic final
 + question
-* <get name> == 17 => Amazing, perfect score. You are a true Bhoepa!
-* <get name> == 12 => Not bad, <get points> points! Brush up on some history and try again soon!
-* <get name> == 8 => Well, <get points> points is a start... Study up and you can do better
-- That was... uh... yeah... you need some serious studying!
+* <get points> == 17 => Amazing, perfect score. You are a true Bhoepa!
+* <get points> > 12 => Not bad, <get points> points! Brush up on some history and try again soon!
+* <get points> > 8 => Well, <get points> points is a start... Study up and you can do better
+- <get points> points.... That was... uh... yeah... you need some serious studying!
+
++ (quit|stop|quiz|restart|again)
+- <send> {topic=default} {@ *}
 <
 
 
