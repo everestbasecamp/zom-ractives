@@ -5,11 +5,19 @@
    return "Your have " + points + " points!";
 < object
 
-> default
++ tashi delek
+- <send> {topic=lang-bo} {@ *}
 
++ *
+- <send> {topic=default} {@ *}
+
+> topic default
 + *
 - Ahem... <delay seconds=1> I am Agu Denpa, the quiz master!\n 
 ^ When you are ready to being, just type "take quiz"
+
++ tashi delek
+- <send> {topic=lang-bo} {@ *}
 
 + (take quiz|quiz|start) {weight=10}
 - {@ clear results}{topic=question-1} {@ question}
@@ -17,13 +25,13 @@
 - <set points=0>
 <
 
-> question-1
+> topic question-1
 + question
 - How many letters are there in the Tibetan alphabet? 5, 10, 20 or 30
 
 + 30
 - Well done, but that was a very easy question.\n<add points=1> <send> {topic=question-2} {@ question}
-+ (5|10|20|#)
++ *
 - Shame on you. There are 30 letters in the Tibetan alphabet.\n<send> {topic=question-2} {@ question}
 + (quit|stop|quiz|restart)
 - <send> {topic=default} {@ *}
