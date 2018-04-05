@@ -1,13 +1,6 @@
-+ *
-- Tashi delek to you... I am Agu Denpa ཨ་ཁུ་བདེན་པ།, the quiz master!\n 
-^ When you are ready to being, just type "go"
 
-
-+ (take quiz|quiz|start|go) {weight=10}
-- <set points=0>{topic=question-1-bo}{@question}
-+ clear results {weight=2}
-- <set points=0>
-
++ tashi delek
+- <send> {topic=lang-bo} {@ *}
 
 > topic lang-bo
 
