@@ -1,14 +1,16 @@
 
-+ tashi delek
++ Tashi Delek
 - <send> {topic=lang-bo} {@ *}
 
 > topic lang-bo
 
 + *
-- Tashi delek to you... I am Agu Denpa ཨ་ཁུ་བདེན་པ།, the quiz master!\n 
-^ When you are ready to being, just type "take quiz"
+- བཀྲ་ཤིས་བདེ་ལེགས་ང་ཨ་ཁུ་བདེན་པ་ཡིན་\n
+^ ཁྱེད་རང་མཇལ་པ་དགའ་པོ་བྱུང་\n
+^ འདྲི་གླེང་འགྲན་སྡུར་འགོ་ཚུགས་གྲ་སྒྲིག་ཡིན་པས་\n
+^ གྲ་སྒྲིག་ཡིན་ན་"འགོ་ཚུགས་"ལེན་འབྲི།\n
 
-+ (take quiz|quiz|start) {weight=10}
++ (འགོ་ཚུགས་|quiz|start) {weight=10}
 - <set points=0>{topic=question-1-bo}{@question}
 + clear results {weight=2}
 - <set points=0>
