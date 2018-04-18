@@ -49,8 +49,9 @@
 - Shame on you. There are 30 letters in the Tibetan alphabet.
 ^ <send> {topic=question-2} {@ question}
 
-+ (quit|stop|quiz|restart)
-- <send> {topic=default} {@ *}
++ (quit|stop|quiz|restart|again|end)
+- <send> {topic=final} {@ *}
+
 < topic
 
 > topic question-2
@@ -71,8 +72,9 @@
 - Wrong. It’s Dranyen. 
 ^ <send> {topic=question-3} {@ question}
 
-+ (quit|stop|quiz|restart)
-- <send> {topic=default} {@ *}
++ (quit|stop|quiz|restart|again|end)
+- <send> {topic=final} {@ *}
+
 < topic
 
 > topic question-3
@@ -93,8 +95,8 @@
 - Wrong. Nyatri Tsenpo was the first king of Tibet. Ever heard the song, “Don’t know nothing about history?” 
 ^ <send> {topic=question-4} {@ question}
 
-+ (quit|stop|quiz|restart)
-- <send> {topic=default} {@ *}
++ (quit|stop|quiz|restart|again|end)
+- <send> {topic=final} {@ *}
 
 < topic
 
@@ -116,8 +118,8 @@
 - Wrong. It’s 10. You’re hopeless. Don’t even ask me how I know.
 ^ <send> {topic=question-5} {@ question}
 
-+ (quit|stop|quiz|restart)
-- <send> {topic=default} {@ *}
++ (quit|stop|quiz|restart|again|end)
+- <send> {topic=final} {@ *}
 
 < topic
 
@@ -139,8 +141,8 @@
 - Sorry. There are 1,055 lakes that are larger than 1 square kilometer on the Tibetan plateau.
 ^ <send> {topic=question-6} {@ question}
 
-+ (quit|stop|quiz|restart)
-- <send> {topic=default} {@ *}
++ (quit|stop|quiz|restart|again|end)
+- <send> {topic=final} {@ *}
 
 < topic
 
@@ -163,8 +165,9 @@
 ^ Go back to high school, study some, and then come back to play this game.
 ^ <send> {topic=question-7} {@ question}
 
-+ (quit|stop|quiz|restart)
-- <send> {topic=default} {@ *}
++ (quit|stop|quiz|restart|again|end)
+- <send> {topic=final} {@ *}
+
 < topic
 
 > topic question-7
@@ -185,8 +188,9 @@
 - Sorry. You are a bad guesser. 
 ^ <send> {topic=question-8} {@ question}
 
-+ (quit|stop|quiz|restart)
-- <send> {topic=default} {@ *}
++ (quit|stop|quiz|restart|again|end)
+- <send> {topic=final} {@ *}
+
 < topic
 
 > topic question-8
@@ -208,8 +212,8 @@
 ^ I’m flabbergasted you don’t even know that!
 ^ <send> {topic=question-9} {@ question}
 
-+ (quit|stop|quiz|restart)
-- <send> {topic=default} {@ *}
++ (quit|stop|quiz|restart|again|end)
+- <send> {topic=final} {@ *}
 
 < topic
 
@@ -232,8 +236,9 @@
 ^ Gu means 9, thuk means thukpa. So guthuk is thukpa with 9 ingredients. 
 ^ <send> {topic=question-10} {@ question}
 
-+ (quit|stop|quiz|restart)
-- <send> {topic=default} {@ *}
++ (quit|stop|quiz|restart|again|end)
+- <send> {topic=final} {@ *}
+
 < topic
 
 > topic question-10
@@ -254,8 +259,8 @@
 - That was an easy question, and you messed up big time. Thonmi Sambhota invented the Tibetan script. 
 ^ <send> {topic=question-11} {@ question}
 
-+ (quit|stop|quiz|restart)
-- <send> {topic=default} {@ *}
++ (quit|stop|quiz|restart|again|end)
+- <send> {topic=final} {@ *}
 
 < topic
 
@@ -277,8 +282,9 @@
 - Wrong! Tibetan script was modeled on the Gupta script. 
 ^ <send> {topic=question-12} {@ question}
 
-+ (quit|stop|quiz|restart)
-- <send> {topic=default} {@ *}
++ (quit|stop|quiz|restart|again|end)
+- <send> {topic=final} {@ *}
+
 < topic
 
 > topic question-12
@@ -299,8 +305,8 @@
 - Sorry. That famous poem was written by Dhondup Gyal. 
 ^ <send> {topic=question-13} {@ question}
 
-+ (quit|stop|quiz|restart)
-- <send> {topic=default} {@ *}
++ (quit|stop|quiz|restart|again|end)
+- <send> {topic=final} {@ *}
 
 < topic
 
@@ -322,8 +328,8 @@
 - Wrong. Jamyang Kyi, Sherten and Tsewang Lhamo are glorious Tibetan singers and so is Justin Bieber but he's Canadian and we love Canadians eh! 
 ^ <send> {topic=question-14} {@ question}
 
-+ (quit|stop|quiz|restart)
-- <send> {topic=default} {@ *}
++ (quit|stop|quiz|restart|again|end)
+- <send> {topic=final} {@ *}
 
 < topic
 
@@ -345,8 +351,8 @@
 - Wrong. Drangchar is the correct answer.
 ^ <send> {topic=question-15} {@ question}
 
-+ (quit|stop|quiz|restart)
-- <send> {topic=default} {@ *}
++ (quit|stop|quiz|restart|again|end)
+- <send> {topic=final} {@ *}
 
 < topic
 
@@ -361,16 +367,15 @@
 ^[d] Lions
 
 + (a|monkey|monkeys)
-- That’s right. Before Darwin developed his theory of evolution, Tibetans already believed that they came from monkeys. 
-^ Perhaps, Darwin was inspired by the Tibetan myth of origin, we don’t really know.<add points=1> 
+- That’s right. Before Darwin developed his theory of evolution, Tibetans already believed that they came from monkeys. Perhaps, Darwin was inspired by the Tibetan myth of origin, we don’t really know.<add points=1> 
 ^ <send> {topic=question-16} {@ question}
 
 + *
 - Wrong. Tibetans may look like lions, dance like yaks, and fly like eagles, but those animals are not their ancestors in myth or in fact. 
 ^ <send> {topic=question-16} {@ question}
 
-+ (quit|stop|quiz|restart)
-- <send> {topic=default} {@ *}
++ (quit|stop|quiz|restart|again|end)
+- <send> {topic=final} {@ *}
 
 < topic
 
@@ -392,8 +397,8 @@
 - These are famous monasteries but none of them is older than Samye. 
 ^ <send> {topic=question-17} {@ question}
 
-+ (quit|stop|quiz|restart)
-- <send> {topic=default} {@ *}
++ (quit|stop|quiz|restart|again|end)
+- <send> {topic=final} {@ *}
 < topic
 
 > topic question-17
@@ -415,8 +420,8 @@
 - Wrong. This line is from the 12th century saint Milarepa. \n
 ^ <send> {topic=final-score} {@ question}
 
-+ (quit|stop|quiz|restart)
-- <send> {topic=default} {@ *}
++ (quit|stop|quiz|restart|again|end)
+- <send> {topic=final} {@ *}
 
 < topic
 
@@ -427,8 +432,8 @@
 * <get points> > 8 => Final score: <get points> points out of 17 is a start... Study up and you can do better! <send> {topic=final} {@ question}
 * <get points> < 8 => Final score: <get points> points out of 17.. That was... uh... yeah... you need some serious studying! <send> {topic=final} {@ question}
 
-+ (quit|stop|quiz|restart|again)
-- <send> {topic=default} {@ *}
++ (quit|stop|quiz|restart|again|end)
+- <send> {topic=final} {@ *}
 < topic
 
 > topic final
@@ -439,7 +444,7 @@
 ^ To leave, type 'end'
 
 + restart
-- <set points=0> Points should be zero: <get points>
+//- <set points=0> Points should be zero: <get points>
 ^ Welcome to my quiz again! Awkward re-introduction begins ..\n
 ^ <send> {topic=default} {@ *}
 
