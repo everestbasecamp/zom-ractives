@@ -15,435 +15,443 @@
 
 > topic default
 + *
-- Ahem... <delay seconds=2> I am Agu Denpa, the quiz master!
-^ ཁྱེད་རང་བོད་ཡིག་གི་ལམ་ནས་དྲི་རྩད་འགྲན་བསྡུར་ནང་ཞུགས་འདོད་ཚེ། 'tibetan' གཏགས་རོགས།
-^ I traveled across Tibet to prepare this quiz for you. This quiz has 17 questions. All the best!
-^ Here are your quiz instructions:
-^ 1. If the correct answer is "[a] Samye", just type "a".
-^ 2. Type "quit" to leave the quiz at anytime.
-^ 3. Ready to go, type "start".
+    - Ahem... <delay seconds=2> I am Agu Denpa, the quiz master!
+    ^ :tiboji-agu_denpa_avatar:
+    ^ ཁྱེད་རང་བོད་ཡིག་གི་ལམ་ནས་དྲི་རྩད་འགྲན་བསྡུར་ནང་ཞུགས་འདོད་ཚེ། 'tibetan' གཏགས་རོགས།
+    ^ I traveled across Tibet to prepare this quiz for you. This quiz has 17 questions. All the best!
+    ^ Here are your quiz instructions:
+    ^ 1. If the correct answer is "[a] Samye", just type "a".
+    ^ 2. Type "quit" to leave the quiz at anytime.
+    ^ 3. Ready to go, type "start".
 
-+ tibetan
-- <send> {topic=lang-bo} {@ *}
+    + tibetan
+    - <send> {topic=lang-bo} {@ *}
 
-+ (quiz|start) {weight=10}
-- <set points=0>{topic=question-1} {@ question}
-+ clear results {weight=2}
-- <set points=0>
+    + (quiz|start) {weight=10}
+    - <set points=0>{topic=question-1} {@ question}
+    + clear results {weight=2}
+    - <set points=0>
 < topic
 
+
 > topic question-1
-
 + question
-- Question 1 of 17: How many letters are there in the Tibetan alphabet?
-^[a] 5
-^[b] 10
-^[c] 20
-^[d] 30
+    - Question 1 of 17: How many letters are there in the Tibetan alphabet?
+    ^[a] 5
+    ^[b] 10
+    ^[c] 20
+    ^[d] 30
 
-+ (d|30)
-- Well done, but that was a very easy question. 
-^ <add points=1> <send> {topic=question-2} {@ question}
+    + (d|30)
+    - Well done, but that was a very easy question. 
+    ^ :zomkyi-11_zomkyi_goodjob:
+    ^ <add points=1> <send> {topic=question-2} {@ question}
 
-+ *
-- Shame on you. There are 30 letters in the Tibetan alphabet.
-^ <send> {topic=question-2} {@ question}
+    + *
+    - Shame on you. There are 30 letters in the Tibetan alphabet.
+    ^ :zomkyi-18_zomkyi_cryingagain:
+    ^ <send> {topic=question-2} {@ question}
 
-+ (quit|stop|quiz|restart)
-- <send> {topic=default} {@ *}
+    + (quit|stop|quiz|restart|again|end)
+    - <send> {topic=final} {@ *}
 < topic
 
 > topic question-2
+    + question
+    - Your score: <get points> out of 1! \n
+    ^ Alright, question 2 of 17:  Which of the following musical instruments is authentically Tibetan?
+    ^[a] Guitar 
+    ^[b] Violin
+    ^[c] Dranyen
+    ^[d] Piano                    
 
-+ question
-- Your score: <get points> out of 1! \n
-^ Alright, question 2 of 17:  Which of the following musical instruments is authentically Tibetan?
-^[a] Guitar 
-^[b] Violin
-^[c] Dranyen
-^[d] Piano                    
+    + (c|dranyen)
+    - La re do, you got it.<add points=1>
+    ^ :topgyal-Singing: 
+    ^ <send> {topic=question-3} {@ question}
 
-+ (c|dranyen)
-- La re do, you got it.<add points=1> 
-^ <send> {topic=question-3} {@ question}
+    + *
+    - Wrong. It’s Dranyen.
+    ^ :zomkyi-18_zomkyi_cryingagain: 
+    ^ <send> {topic=question-3} {@ question}
 
-+ *
-- Wrong. It’s Dranyen. 
-^ <send> {topic=question-3} {@ question}
+    + (quit|stop|quiz|restart|again|end)
+    - <send> {topic=final} {@ *}
 
-+ (quit|stop|quiz|restart)
-- <send> {topic=default} {@ *}
 < topic
 
 > topic question-3
+    + question
+    - Your score: <get points> out of 2! \n
+    ^ Question 3 of 17: Who was the first king of Tibet?
+    ^[a] Songtsen Gampo
+    ^[b] Nyatri Tsenpo
+    ^[c] Pema Tseden
+    ^[d] Lang Dharma   
+    
+    + (b|nyatri tsenpo|nyatri|tsenpo)
+    - Wow, you know something about history! <add points=1>
+    ^ :zomkyi-11_zomkyi_goodjob: 
+    ^ <send> {topic=question-4} {@ question}
 
-+ question
-- Your score: <get points> out of 2! \n
-^ Question 3 of 17: Who was the first king of Tibet?
-^[a] Songtsen Gampo
-^[b] Nyatri Tsenpo
-^[c] Pema Tseden
-^[d] Lang Dharma   
- 
-+ (b|nyatri tsenpo|nyatri|tsenpo)
-- Wow, you know something about history! <add points=1> 
-^ <send> {topic=question-4} {@ question}
+    + *
+    - Wrong. Nyatri Tsenpo was the first king of Tibet. Ever heard the song, “Don’t know nothing about history?” 
+    ^ :olo_and_shimi_1-8crying:
+    ^ <send> {topic=question-4} {@ question}
 
-+ *
-- Wrong. Nyatri Tsenpo was the first king of Tibet. Ever heard the song, “Don’t know nothing about history?” 
-^ <send> {topic=question-4} {@ question}
-
-+ (quit|stop|quiz|restart)
-- <send> {topic=default} {@ *}
-
+    + (quit|stop|quiz|restart|again|end)
+    - <send> {topic=final} {@ *}
 < topic
 
 > topic question-4
+    + question
+    - Your score: <get points> out of 3! \n
+    ^ Question 4 of 17: How many cups of butter tea does the average Tibetan nomad drink per day?
+    ^[a] 1
+    ^[b] 10
+    ^[c] 20
+    ^[d] 5
 
-+ question
-- Your score: <get points> out of 3! \n
-^ Question 4 of 17: How many cups of butter tea does the average Tibetan nomad drink per day?
-^[a] 1
-^[b] 10
-^[c] 20
-^[d] 5
+    + (b|10)
+    - Spot on. You must be a nomad yourself! <add points=1> 
+    ^ :olo_and_shimi_1-6yay:
+    ^ <send> {topic=question-5} {@ question}
 
-+ (b|10)
-- Spot on. You must be a nomad yourself! <add points=1> 
-^ <send> {topic=question-5} {@ question}
+    + *
+    - Wrong. It’s 10. You’re hopeless. Don’t even ask me how I know.
+    ^ :zomkyi-18_zomkyi_cryingagain:
+    ^ <send> {topic=question-5} {@ question}
 
-+ *
-- Wrong. It’s 10. You’re hopeless. Don’t even ask me how I know.
-^ <send> {topic=question-5} {@ question}
-
-+ (quit|stop|quiz|restart)
-- <send> {topic=default} {@ *}
-
+    + (quit|stop|quiz|restart|again|end)
+    - <send> {topic=final} {@ *}
 < topic
 
 > topic question-5
+    + question
+    - Your score: <get points> out of 4! \n
+    ^ Question 5 of 17: How many lakes are there on the Tibetan plateau whose size is greater than 1 square kilometer?
+    ^[a] 1,055
+    ^[b] 505
+    ^[c] 10,055
+    ^[d] 705
 
-+ question
-- Your score: <get points> out of 4! \n
-^ Question 5 of 17: How many lakes are there on the Tibetan plateau whose size is greater than 1 square kilometer?
-^[a] 1,055
-^[b] 505
-^[c] 10,055
-^[d] 705
+    + (a|1055) 
+    - Wow! That was a tough one and you nailed it. Good for you.<add points=1>
+    ^ :zomkyi-11_zomkyi_goodjob:
+    ^ <send> {topic=question-6} {@ question}
 
-+ (a|1055) 
-- Wow! That was a tough one and you nailed it. Good for you.<add points=1>
-^ <send> {topic=question-6} {@ question}
+    + *
+    - Sorry. There are 1,055 lakes that are larger than 1 square kilometer on the Tibetan plateau.
+    ^ :olo_and_shimi_1-8crying:
+    ^ <send> {topic=question-6} {@ question}
 
-+ *
-- Sorry. There are 1,055 lakes that are larger than 1 square kilometer on the Tibetan plateau.
-^ <send> {topic=question-6} {@ question}
-
-+ (quit|stop|quiz|restart)
-- <send> {topic=default} {@ *}
-
+    + (quit|stop|quiz|restart|again|end)
+    - <send> {topic=final} {@ *}
 < topic
 
 > topic question-6
+    + question
+    - Your score: <get points> out of 5! \n
+    ^ Question 6 of 17: Where is Yamdrok Lake located?
+    ^[a] Amdo
+    ^[b] Chamdo
+    ^[c] Kham
+    ^[d] Utsang
 
-+ question
-- Your score: <get points> out of 5! \n
-^ Question 6 of 17: Where is Yamdrok Lake located?
-^[a] Amdo
-^[b] Chamdo
-^[c] Kham
-^[d] Utsang
+    + (d|utsang)
+    ^ :olo_and_shimi_1-6yay:
+    - You got it! Looks like you’ve traveled a bit, or at least studied geography.<add points=1> 
+    
+    ^ <send> {topic=question-7} {@ question}
 
-+ (d|utsang)
-- You got it! Looks like you’ve traveled a bit, or at least studied geography.<add points=1> 
-^ <send> {topic=question-7} {@ question}
+    + *
+    - Wrong. Yamdrok Lake is in Utsang, just a couple of hours drive from Lhasa. Go back to high school, study some, and then come back to play this game.
+    ^ :zomkyi-18_zomkyi_cryingagain:
+    ^ <send> {topic=question-7} {@ question}
 
-+ *
-- Wrong. Yamdrok Lake is in Utsang, just a couple of hours drive from Lhasa. 
-^ Go back to high school, study some, and then come back to play this game.
-^ <send> {topic=question-7} {@ question}
-
-+ (quit|stop|quiz|restart)
-- <send> {topic=default} {@ *}
+    + (quit|stop|quiz|restart|again|end)
+    - <send> {topic=final} {@ *}
 < topic
 
 > topic question-7
+    + question
+    - Your score: <get points> out of 6! \n
+    ^ Question 7 of 17: What is the distance between Lhasa and Shigatse?
+    ^[a] 520 km
+    ^[b] 350 km
+    ^[c] 270 km
+    ^[d] 150 km
 
-+ question
-- Your score: <get points> out of 6! \n
-^ Question 7 of 17: What is the distance between Lhasa and Shigatse?
-^[a] 520 km
-^[b] 350 km
-^[c] 270 km
-^[d] 150 km
+    + (c|270 km|270|270km)
+    - Nice. That was a tough one and you nailed it.<add points=1> 
+    ^ :zomkyi-11_zomkyi_goodjob:
+    ^ <send> {topic=question-8} {@ question}
 
-+ (c|270 km|270|270km)
-- Nice. That was a tough one and you nailed it.<add points=1> 
-^ <send> {topic=question-8} {@ question}
+    + *
+    - Sorry. You are a bad guesser. 
+    ^ :olo_and_shimi_1-8crying:
+    ^ <send> {topic=question-8} {@ question}
 
-+ *
-- Sorry. You are a bad guesser. 
-^ <send> {topic=question-8} {@ question}
-
-+ (quit|stop|quiz|restart)
-- <send> {topic=default} {@ *}
+    + (quit|stop|quiz|restart|again|end)
+    - <send> {topic=final} {@ *}
 < topic
 
 > topic question-8
+    + question
+    - Your score: <get points> out of 7! \n
+    ^ Question 8 of 17: Where was Gedun Choephel born?
+    ^[a] Lithang
+    ^[b] Ngaba
+    ^[c] Dartsedo
+    ^[d] Rebkong
 
-+ question
-- Your score: <get points> out of 7! \n
-^ Question 8 of 17: Where was Gedun Choephel born?
-^[a] Lithang
-^[b] Ngaba
-^[c] Dartsedo
-^[d] Rebkong
+    + (d|rebkong)
+    - Correct, well done.<add points=1>
+    ^ :olo_and_shimi_1-6yay:
+    ^ <send> {topic=question-9} {@ question}
 
-+ (d|rebkong)
-- Correct, well done.<add points=1>
-^ <send> {topic=question-9} {@ question}
+    + *
+    - Wrong. Gendun Choephel was born in Rebkong, just like Tsongkhapa and many other famous scholars. I’m flabbergasted you don’t even know that!
+    ^ :zomkyi-18_zomkyi_cryingagain:
+    ^ <send> {topic=question-9} {@ question}
 
-+ *
-- Wrong. Gendun Choephel was born in Rebkong, just like Tsongkhapa and many other famous scholars. 
-^ I’m flabbergasted you don’t even know that!
-^ <send> {topic=question-9} {@ question}
-
-+ (quit|stop|quiz|restart)
-- <send> {topic=default} {@ *}
-
+    + (quit|stop|quiz|restart|again|end)
+    - <send> {topic=final} {@ *}
 < topic
 
 > topic question-9
+    + question
+    - Your score: <get points> out of 8! \n
+    ^ Question 9 of 17: How many ingredients are there in guthuk, which is a traditional thukpa made on the 29th day of the 12th month of the year?
+    ^[a] 7
+    ^[b] 19
+    ^[c] 9
+    ^[d] 29
 
-+ question
-- Your score: <get points> out of 8! \n
-^ Question 9 of 17: How many ingredients are there in guthuk, which is a traditional thukpa made on the 29th day of the 12th month of the year?
-^[a] 7
-^[b] 19
-^[c] 9
-^[d] 29
+    + (c|9|nine)
+    - That’s correct. Gu means 9, thuk means thukpa. So guthuk is thukpa with 9 ingredients. Pretty basic. <add points=1> 
+    ^ :zomkyi-11_zomkyi_goodjob:
+    ^ <send> {topic=question-10} {@ question}
 
-+ (c|9|nine)
-- That’s correct. Gu means 9, thuk means thukpa. So guthuk is thukpa with 9 ingredients. Pretty basic. <add points=1> 
-^ <send> {topic=question-10} {@ question}
+    + *
+    - OMG, are you serious? If you used your common sense once in awhile, you would have answered correctly. 
+    ^ Gu means 9, thuk means thukpa. So guthuk is thukpa with 9 ingredients. 
+    ^ :olo_and_shimi_1-8crying:
+    ^ <send> {topic=question-10} {@ question}
 
-+ *
-- OMG, are you serious? If you used your common sense once in awhile, you would have answered correctly. 
-^ Gu means 9, thuk means thukpa. So guthuk is thukpa with 9 ingredients. 
-^ <send> {topic=question-10} {@ question}
-
-+ (quit|stop|quiz|restart)
-- <send> {topic=default} {@ *}
+    + (quit|stop|quiz|restart|again|end)
+    - <send> {topic=final} {@ *}
 < topic
 
 > topic question-10
+    + question
+    - Your score: <get points> out of 9! \n
+    ^ Question 10 of 17: Who invented the Tibetan script?
+    ^[a] Sonam Wangdue
+    ^[b] Thonmi Sambhota
+    ^[c] Milarepa
+    ^[d] Menla Kyab
 
-+ question
-- Your score: <get points> out of 9! \n
-^ Question 10 of 17: Who invented the Tibetan script?
-^[a] Sonam Wangdue
-^[b] Thonmi Sambhota
-^[c] Milarepa
-^[d] Menla Kyab
+    + (b|thonmi sambhota|thonmi|sambhota)
+    - Great work! Thonmi Sambhota invented the Tibetan script, developing the 30 alphabets and the 4 vowels. <add points=1> 
+    ^ :olo_and_shimi_1-6yay:
+    ^ <send> {topic=question-11} {@ question}
 
-+ (b|thonmi sambhota|thonmi|sambhota)
-- Great work! Thonmi Sambhota invented the Tibetan script, developing the 30 alphabets and the 4 vowels. <add points=1> 
-^ <send> {topic=question-11} {@ question}
+    + *
+    - That was an easy question, and you messed up big time. Thonmi Sambhota invented the Tibetan script. 
+    ^ :zomkyi-18_zomkyi_cryingagain:
+    ^ <send> {topic=question-11} {@ question}
 
-+ *
-- That was an easy question, and you messed up big time. Thonmi Sambhota invented the Tibetan script. 
-^ <send> {topic=question-11} {@ question}
-
-+ (quit|stop|quiz|restart)
-- <send> {topic=default} {@ *}
-
+    + (quit|stop|quiz|restart|again|end)
+    - <send> {topic=final} {@ *}
 < topic
 
 > topic question-11
+    + question
+    - Your score: <get points> out of 10! \n
+    ^ Question 11 of 17: The Tibetan script was modeled on which ancient script?
+    ^[a] Pali
+    ^[b] Latin
+    ^[c] Roman
+    ^[d] Gupta
 
-+ question
-- Your score: <get points> out of 10! \n
-^ Question 11 of 17: The Tibetan script was modeled on which ancient script?
-^[a] Pali
-^[b] Latin
-^[c] Roman
-^[d] Gupta
+    + (d|gupta script|gupta)
+    - Well done! <add points=1> 
+    ^ :zomkyi-11_zomkyi_goodjob:
+    ^ <send> {topic=question-12} {@ question}
 
-+ (d|gupta script|gupta)
-- Well done! <add points=1> 
-^ <send> {topic=question-12} {@ question}
+    + *
+    - Wrong! Tibetan script was modeled on the Gupta script. 
+    ^ :olo_and_shimi_1-8crying:
+    ^ <send> {topic=question-12} {@ question}
 
-+ *
-- Wrong! Tibetan script was modeled on the Gupta script. 
-^ <send> {topic=question-12} {@ question}
-
-+ (quit|stop|quiz|restart)
-- <send> {topic=default} {@ *}
+    + (quit|stop|quiz|restart|again|end)
+    - <send> {topic=final} {@ *}
 < topic
 
 > topic question-12
+    + question
+    - Your score: <get points> out of 11! \n
+    ^ Question 12 of 17: Who wrote the famous poem “Waterfall of Youth”?
+    ^[a] Jangdu
+    ^[b] Woeser
+    ^[c] Dhondup Gyal
+    ^[d] Drukpa Kunleg
+    
+    + (c|dhondup gyal|dhondup|gyal)
+    - Wow, you’re an educated reader of Tibetan literature!<add points=1> 
+    ^ :olo_and_shimi_1-6yay:
+    ^ <send> {topic=question-13} {@ question}
 
-+ question
-- Your score: <get points> out of 11! \n
-^ Question 12 of 17: Who wrote the famous poem “Waterfall of Youth”?
-^[a] Jangdu
-^[b] Woeser
-^[c] Dhondup Gyal
-^[d] Drukpa Kunleg
- 
-+ (c|dhondup gyal|dhondup|gyal)
-- Wow, you’re an educated reader of Tibetan literature!<add points=1> 
-^ <send> {topic=question-13} {@ question}
+    + *
+    - Sorry. That famous poem was written by Dhondup Gyal. 
+    ^ :zomkyi-18_zomkyi_cryingagain:
+    ^ <send> {topic=question-13} {@ question}
 
-+ *
-- Sorry. That famous poem was written by Dhondup Gyal. 
-^ <send> {topic=question-13} {@ question}
-
-+ (quit|stop|quiz|restart)
-- <send> {topic=default} {@ *}
-
+    + (quit|stop|quiz|restart|again|end)
+    - <send> {topic=final} {@ *}
 < topic
 
 > topic question-13
+    + question
+    - Your score: <get points> out of 12! \n
+    ^ Question 13 of 17: Who among the following is not a Tibetan singer?
+    ^[a] Jamyang Kyi
+    ^[b] Sherten
+    ^[c] Justin Bieber
+    ^[d] Tsewang Lhamo
+        
+    + (c|justin bieber|bieber)
+    - You got it. Justin Bieber is a great singer but a Canadian eh! <add points=1> 
+    ^ :zomkyi-11_zomkyi_goodjob:
+    ^ <send> {topic=question-14} {@ question}
 
-+ question
-- Your score: <get points> out of 12! \n
-^ Question 13 of 17: Who among the following is not a Tibetan singer?
-^[a] Jamyang Kyi
-^[b] Sherten
-^[c] Justin Bieber
-^[d] Tsewang Lhamo
-    
-+ (c|justin bieber|bieber)
-- You got it. Justin Bieber is a great singer but a Canadian eh! <add points=1> 
-^ <send> {topic=question-14} {@ question}
+    + *
+    - Wrong. Jamyang Kyi, Sherten and Tsewang Lhamo are glorious Tibetan singers and so is Justin Bieber but he's Canadian and we love Canadians eh! 
+    ^ :olo_and_shimi_1-8crying:
+    ^ <send> {topic=question-14} {@ question}
 
-+ *
-- Wrong. Jamyang Kyi, Sherten and Tsewang Lhamo are glorious Tibetan singers and so is Justin Bieber but he's Canadian and we love Canadians eh! 
-^ <send> {topic=question-14} {@ question}
-
-+ (quit|stop|quiz|restart)
-- <send> {topic=default} {@ *}
-
+    + (quit|stop|quiz|restart|again|end)
+    - <send> {topic=final} {@ *}
 < topic
 
 > topic question-14
+    + question
+    - Your score: <get points> out of 13! \n
+    ^ Question 14 of 17: Which of the following is the name of a Tibetan literary magazine?
+    ^[a] Paris Review
+    ^[b] New Yorker
+    ^[c] Drangchar
+    ^[d] Tehelka
 
-+ question
-- Your score: <get points> out of 13! \n
-^ Question 14 of 17: Which of the following is the name of a Tibetan literary magazine?
-^[a] Paris Review
-^[b] New Yorker
-^[c] Drangchar
-^[d] Tehelka
+    + (c|drangchar)
+    - Correct! But that was an easy one.<add points=1> 
+    ^ :olo_and_shimi_1-6yay:
+    ^ <send> {topic=question-15} {@ question}
 
-+ (c|drangchar)
-- Correct! But that was an easy one.<add points=1> 
-^ <send> {topic=question-15} {@ question}
+    + *
+    - Wrong. Drangchar is the correct answer.
+    ^ :zomkyi-18_zomkyi_cryingagain:
+    ^ <send> {topic=question-15} {@ question}
 
-+ *
-- Wrong. Drangchar is the correct answer.
-^ <send> {topic=question-15} {@ question}
-
-+ (quit|stop|quiz|restart)
-- <send> {topic=default} {@ *}
-
+    + (quit|stop|quiz|restart|again|end)
+    - <send> {topic=final} {@ *}
 < topic
 
 > topic question-15
+    + question
+    - Your score: <get points> out of 14!\n
+    ^ Question 15 of 17: According to the Tibetan myth of origin, who were the original ancestors of the Tibetan people?
+    ^[a] Monkeys
+    ^[b] Yaks
+    ^[c] Eagles
+    ^[d] Lions
 
-+ question
-- Your score: <get points> out of 14!\n
-^ Question 15 of 17: According to the Tibetan myth of origin, who were the original ancestors of the Tibetan people?
-^[a] Monkeys
-^[b] Yaks
-^[c] Eagles
-^[d] Lions
+    + (a|monkey|monkeys)
+    - That’s right. Before Darwin developed his theory of evolution, Tibetans already believed that they came from monkeys. Perhaps, Darwin was inspired by the Tibetan myth of origin, we don’t really know.<add points=1> 
+    ^ :zomkyi-11_zomkyi_goodjob:
+    ^ <send> {topic=question-16} {@ question}
 
-+ (a|monkey|monkeys)
-- That’s right. Before Darwin developed his theory of evolution, Tibetans already believed that they came from monkeys. 
-^ Perhaps, Darwin was inspired by the Tibetan myth of origin, we don’t really know.<add points=1> 
-^ <send> {topic=question-16} {@ question}
+    + *
+    - Wrong. Tibetans may look like lions, dance like yaks, and fly like eagles, but those animals are not their ancestors in myth or in fact. 
+    ^ :olo_and_shimi_1-8crying:
+    ^ <send> {topic=question-16} {@ question}
 
-+ *
-- Wrong. Tibetans may look like lions, dance like yaks, and fly like eagles, but those animals are not their ancestors in myth or in fact. 
-^ <send> {topic=question-16} {@ question}
-
-+ (quit|stop|quiz|restart)
-- <send> {topic=default} {@ *}
-
+    + (quit|stop|quiz|restart|again|end)
+    - <send> {topic=final} {@ *}
 < topic
 
 > topic question-16
+    + question
+    - Your score: <get points> out of 15!\n
+    ^ Question 16 of 17: What is the oldest Buddhist monastery in Tibet?
+    ^[a] Jokhang
+    ^[b] Samye
+    ^[c] Labrang
+    ^[d] Kirti
 
-+ question
-- Your score: <get points> out of 15!\n
-^ Question 16 of 17: What is the oldest Buddhist monastery in Tibet?
-^[a] Jokhang
-^[b] Samye
-^[c] Labrang
-^[d] Kirti
+    + (b|samye|samye monastery)
+    - Correct! Samye was built in the 8th century when Buddhism replaced Bon as the dominant religion of Tibet.<add points=1> 
+    ^ :olo_and_shimi_1-6yay:
+    ^ <send> {topic=question-17} {@ question}
 
-+ (b|samye|samye monastery)
-- Correct! Samye was built in the 8th century when Buddhism replaced Bon as the dominant religion of Tibet.<add points=1> 
-^ <send> {topic=question-17} {@ question}
+    + *
+    - These are famous monasteries but none of them is older than Samye. 
+    ^ :zomkyi-18_zomkyi_cryingagain:
+    ^ <send> {topic=question-17} {@ question}
 
-+ *
-- These are famous monasteries but none of them is older than Samye. 
-^ <send> {topic=question-17} {@ question}
-
-+ (quit|stop|quiz|restart)
-- <send> {topic=default} {@ *}
+    + (quit|stop|quiz|restart|again|end)
+    - <send> {topic=final} {@ *}
 < topic
 
 > topic question-17
+    + question
+    - Your score: <get points> out of 16! \n
+    ^ Final question: Which of the following authors penned this line: “In the eyes of the world, Mila has gone mad; In the eyes of Mila, the world has gone mad.”
+    ^[a] Milarepa
+    ^[b] Tsangyang Gyatso
+    ^[c] Sakya Pandita
+    ^[d] Gedun Choephel
 
-+ question
-- Your score: <get points> out of 16! \n
-^ Final question: Which of the following authors penned this line: “In the eyes of the world, Mila has gone mad; In the eyes of Mila, the world has gone mad.”
-^[a] Milarepa
-^[b] Tsangyang Gyatso
-^[c] Sakya Pandita
-^[d] Gedun Choephel
+    + (a|milarepa)
+    - You got it! Milarepa sang thousands of songs in the wilderness, and somehow his student Rechungpa was able to document most of them in his biography. This particular line captures Milarepa’s scathing critique of those who lived a worldly life of desire, anger and ignorance. \n<add points=1> 
+    ^ :zomkyi-11_zomkyi_goodjob:
+    ^ <send> {topic=final-score} {@ question}
 
-+ (a|milarepa)
-- You got it! Milarepa sang thousands of songs in the wilderness, and somehow his student Rechungpa was able to document most of them in his biography. 
-^ This particular line captures Milarepa’s scathing critique of those who lived a worldly life of desire, anger and ignorance. \n<add points=1> 
-^ <send> {topic=final-score} {@ question}
+    + *
+    - Wrong. This line is from the 12th century saint Milarepa. \n
+    ^ :olo_and_shimi_1-8crying:
+    ^ <send> {topic=final-score} {@ question}
 
-+ *
-- Wrong. This line is from the 12th century saint Milarepa. \n
-^ <send> {topic=final-score} {@ question}
-
-+ (quit|stop|quiz|restart)
-- <send> {topic=default} {@ *}
-
+    + (quit|stop|quiz|restart|again|end)
+    - <send> {topic=final} {@ *}
 < topic
 
 > topic final-score
-+ question
-* <get points> == 17 => Final score: 17 out of 17! Just amazing, perfect score. You got Tibetan history down! <send> {topic=final} {@ question}
-* <get points> > 12 => Final score: <get points> points out of 17! Brush up on some history and try again soon! <send> {topic=final} {@ question}
-* <get points> > 8 => Final score: <get points> points out of 17 is a start... Study up and you can do better! <send> {topic=final} {@ question}
-* <get points> < 8 => Final score: <get points> points out of 17.. That was... uh... yeah... you need some serious studying! <send> {topic=final} {@ question}
+    + question
+    * <get points> == 17 => Final score: 17 out of 17! Just amazing, perfect score. You got Tibetan history down! <send> {topic=final} {@ question}
+    * <get points> > 12 => Final score: <get points> points out of 17! Brush up on some history and try again soon! <send> {topic=final} {@ question}
+    * <get points> > 8 => Final score: <get points> points out of 17 is a start... Study up and you can do better! <send> {topic=final} {@ question}
+    * <get points> < 8 => Final score: <get points> points out of 17.. That was... uh... yeah... you need some serious studying! <send> {topic=final} {@ question}
 
-+ (quit|stop|quiz|restart|again)
-- <send> {topic=default} {@ *}
+    + (quit|stop|quiz|restart|again|end)
+    - <send> {topic=final} {@ *}
 < topic
 
 > topic final
-+ question
-- \n\n Quizmaster Agu Denpa here. Thank you for playing my quiz.
-^ I would be grateful if you share the quiz with your friends and family.
-^ To play again, type 'restart'
-^ To leave, type 'end'
+    + question
+    - \n\n Quizmaster Agu Denpa here. Thank you for playing my quiz.
+    ^ I would be grateful if you share the quiz with your friends and family.
+    ^ To play again, type 'restart'
+    ^ To leave, type 'end'
 
-+ restart
-- <set points=0> Points should be zero: <get points>
-^ Welcome to my quiz again! Awkward re-introduction begins ..\n
-^ <send> {topic=default} {@ *}
+    + restart
+    //- <set points=0> Points should be zero: <get points>
+    ^ Welcome to my quiz again! Awkward re-introduction begins ..\n
+    ^ <send> {topic=default} {@ *}
 
-+ (end|*)
-- Thank you and bye!
+    + (end|*)
+    - Thank you and goodbye!
+    ^ :tiboji-agu_denpa_avatar:
 
 < topic
