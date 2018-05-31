@@ -1,0 +1,42 @@
+! version = 2.0
+! local concat = newline
+//! var greetings = Tashi Delek!
+
+
++ tibetan
+- <send> {topic=searchbot-lang-bo} {@ *}
+
+// placeholder for Tibetan version. Will be saved in different file.
+> topic searchbot-lang-bo
++ *
+- In Tibetan. To be completed later.
+< topic
+
++ *
+- <send> {topic=default} {@ *}
+
+> topic default
++ *
+    - Ahem... <delay seconds=2> I am Topgyal, the search guru!
+    ^ :topgyal-bemused:
+    ^ Please type the subject you would like to search.
+    ^ Type "guitar" to search for guitar.
+    ^ ཁྱེད་རང་བོད་ཡིག་གི་ལམ་ནས་དྲི་རྩད་འགྲན་བསྡུར་ནང་ཞུགས་འདོད་ཚེ། 'tibetan' གཏགས་རོགས།
+    ^ To leave, type "quit" or just close the chat.
+
+    + tibetan
+    - <send> {topic=searchbot-lang-bo} {@ *}
+
+    + (help|close|end|quit) {weight=10}
+    - <send> {topic=final} {@ *}
+
+    + *
+    - Search <star> in wiki search page // <star> value to wiki query?
+< topic
+
+> topic final
+    + question
+    - \n\n Hope I was able to help you.
+    ^ I look forward to seeing you often.
+    ^ :topgyal-singing:
+< topic
